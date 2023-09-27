@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Not found page 404 
+
+sudo apt-get update
+
+sudo apt-get install -y nginx
+
+sudo tee /var/www/html/custom_404.html > /dev/null <<EOF
+<!DOCTYPE html>
+<html>
+<head>
+    <title>404 Not Found</title>
+</head>
+<body>
+    <h1>404 Not Found</h1>
+    <p>Ceci n'est pas une page.</p>
+</body>
+</html>
+EOF
+
+sudo tee /etc/nginx/sites-available/custom_404 > /dev/null <<EOF
+server {
+    listen 80;
+    server_name your_domain.com; # Replace with your actual domain
+
+    location / {
+        root /var/www/html;
+        try_files \$uri \$uri/ =404;
+    }
+
+    error_page 404 /custom_404.html;
+
+}
+EOF
+
+sudo ln -s /etc/nginx/sites-available/custom_404 /etc/nginx/sites-enabled/
+
+sudo nginx -t
+
+sudo systemctl reload nginx
+
