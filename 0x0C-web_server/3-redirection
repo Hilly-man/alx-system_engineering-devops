@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+sudo apt-get update
+
+sudo apt-get install -y nginx
+
+sudo tee /etc/nginx/sites-available/redirect_me <<EOF
+server {
+    listen 80;
+    server_name your_domain.com; # Replace with your actual domain
+
+    location /redirect_me {
+        return 301 http://new_destination.com; # Replace with the new destination URL
+    }
+
+}
+EOF
+
+sudo ln -s /etc/nginx/sites-available/redirect_me /etc/nginx/sites-enabled/
+
+sudo nginx -t
+
+sudo systemctl reload nginx
+
