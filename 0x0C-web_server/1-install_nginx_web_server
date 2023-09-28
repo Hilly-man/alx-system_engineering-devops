@@ -1,25 +1,9 @@
 #!/usr/bin/env bash
-#Install nginx web server 
+# installing nginx and configuring it on a remote server
 
-sudo apt-get update
-
-sudo apt-get install -y nginx
-
-echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
-
-if ! pgrep -x "nginx" >/dev/null; then
-    sudo service nginx start
-fi
-
-if ! grep -q "listen 80;" /etc/nginx/sites-available/default; then
-    sudo sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
-fi
-
-sudo service nginx reload
-
-if [[ $(curl -s http://localhost | grep -c "Hello World!") -gt 0 ]]; then
-    echo "Nginx is installed, configured, and running with 'Hello World!' response."
-else
-    echo "Nginx may not be configured correctly."
-fi
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+service nginx start
 
