@@ -42,3 +42,4 @@ elif [ $# -eq 2 ]; then
     subdomain="$2"
     runDig "$subdomain" "$domain"
 fi
+
