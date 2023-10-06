@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 global
         log /dev/log    local0
         log /dev/log    local1 notice
@@ -33,9 +34,9 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 
 frontend myfrontend
-        bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/www.gbetisolutions.tech.pem
-        default_backend myservers
+	bind 0.0.0.0:80
+	bind 0.0.0.0:443 ssl crt /etc/haproxy/certs/www.gbetisolutions.tech.pem
+	mode http
 
 backend myservers
         balance roundrobin
