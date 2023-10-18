@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# connects to school server
+# connects to my server
 
-ssh -i ~/.ssh/school ubuntu@100.24.206.107
-ssh -i ~/.ssh/school ubuntu@100.25.131.225
-
+ssh -i ~/.ssh/school ubuntu@54.164.64.121
+ssh -i ~/.ssh/school ubuntu@18.209.178.243
