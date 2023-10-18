@@ -1,0 +1,37 @@
+The Journey of a Web Request: What Happens When You Type https://www.google.com and Press Enter
+
+Ever wondered about the behind-the-scenes action when you type “https://www.google.com" and hit Enter in your browser? This blog post takes you through the technical journey of a web request, covering DNS requests, TCP/IP, firewalls, HTTPS/SSL, load balancers, web servers, application servers, and databases.
+
+1. DNS Request
+
+It all starts with a DNS request. Your computer needs to translate the web address (www.google.com) into an IP address. It sends a request to a DNS server, which holds the database of domain names and their corresponding IP addresses, then returns the IP address to your computer.
+
+2. TCP/IP
+
+With the IP address, your computer uses TCP/IP to connect to Google’s web servers. TCP ensures data is transferred reliably and in order, while IP takes care of routing and addressing.
+
+3. Firewall
+
+Data packets might encounter firewalls, which act as security guards, filtering network traffic to prevent unauthorized access and malicious activities. A successful passage allows the request to proceed.
+
+4. HTTPS/SSL
+
+Security is vital, and HTTPS with SSL encryption is used to protect data during transmission, ensuring it can’t be easily intercepted or tampered with by hackers.
+
+5. Load Balancer
+
+Big websites like Google have multiple servers, and a load balancer evenly distributes incoming traffic to ensure optimal performance and prevent server overload.
+
+6. Web Server
+
+The web server processes your request, fetching the requested web page and sending back HTML, CSS, and other files to your browser.
+
+7. Application Server
+
+Some websites require an application server to handle dynamic content, connecting to databases, performing calculations, and generating dynamic content for the web page.
+
+8. Database
+
+If data from a database is needed, the application server connects to the database server to retrieve the required information, such as search results or user profiles, which is then combined with the web page’s structure and sent to your browser.
+
+When you enter “https://www.google.com" and hit Enter, a complex journey unfolds behind the scenes. Understanding this process helps you appreciate the intricacies that make web browsing seamless and reliable.
