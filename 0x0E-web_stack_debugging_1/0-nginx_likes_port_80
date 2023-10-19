@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 # confiq Nginx server to liten to port 80
-
-# removes the default Nginx config file
 rm /etc/nginx/sites-enabled/default
-# Config Nginx to listne to port 80 for all active IPv4 IPs
 ln -s /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default
-# restart
 service restart
